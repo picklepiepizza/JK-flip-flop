@@ -2,7 +2,7 @@ public class Main
 {
 	public static void main(String[] args) {
 		
-		JK newJK = new JK();
+		JK newJK = new JK(1, 0, 0, 0);
 		
 		newJK.clock();
 		
