@@ -4,45 +4,43 @@ public class JK {
     boolean reset;
     boolean preset;
     boolean clear;
-    boolean output;
+    boolean q;
+    boolean qnot;
     
-    public void setValues(set, reset, preset, clear) {
-        self.set = set;
-        self.reset = reset;
-        self.preset = preset;
-        self.clear = clear;
+    
+    public void setValues(boolean set, boolean reset, boolean preset, boolean clear) {
+        this.set = set;
+        this.reset = reset;
+        this.preset = preset;
+        this.clear = clear;
     }
     
     public void clock() {
         
-        if (preset == false && clear == false) {
-            self.q = true
-            self.qnot = true
-        } else if (preset == false && clear == true) {
-            self.q = true
-            self.qnot = false
-        } else if (preset == true && clear == false) {
-            self.q = false
-            self.qnot = true
-        } else if (preset == true && clear == true) {
+        if (this.preset == false && this.clear == false) {
+            this.q = true;
+            this.qnot = true;
+        } else if (this.preset == false && this.clear == true) {
+            this.q = true;
+            this.qnot = false;
+        } else if (this.preset == true && this.clear == false) {
+            this.q = false;
+            this.qnot = true;
+        } else if (this.preset == true && this.clear == true) {
             
-            if (set == false && reset == true) {
-                self.q = false;
-                self.qnot = true;
-            } else if (set == true && reset == false) {
-                self.q = true;
-                self.qnot = false;
-            } else if (set == true && reset == true) {
-                self.q = !self.q;
-                self.qnot = !self.qnot;
+            if (this.set == false && this.reset == true) {
+                this.q = false;
+                this.qnot = true;
+            } else if (this.set == true && this.reset == false) {
+                this.q = true;
+                this.qnot = false;
+            } else if (this.set == true && this.reset == true) {
+                this.q = !this.q;
+                this.qnot = !this.qnot;
             }
             
         }
         
-    }
-    
-    public boolean get() {
-        return currentValue;
     }
     
 }
