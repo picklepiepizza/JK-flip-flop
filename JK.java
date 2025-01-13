@@ -7,6 +7,8 @@ public class JK {
     boolean q;
     boolean qnot;
     
+    public JK() {}
+    
     public JK(boolean set, boolean reset, boolean preset, boolean clear) {
         this.set = set;
         this.reset = reset;
