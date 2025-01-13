@@ -51,4 +51,12 @@ public class JK {
         
     }
     
+    public boolean getq() {
+        return this.q;
+    }
+    
+    public boolean getqnot() {
+        return this.qnot;
+    }
+    
 }
