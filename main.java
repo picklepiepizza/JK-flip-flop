@@ -6,7 +6,7 @@ public class Main
 		
 		newJK.clock();
 		
-		print(newJK.getq());
+		System.out.println(newJK.getq());
 
 		// SET = 1
 		// RESET = 0
