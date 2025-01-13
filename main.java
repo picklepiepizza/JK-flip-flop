@@ -7,6 +7,9 @@ public class Main
 		newJK.clock();
 		
 		print(newJK.getq());
+
+		// SET = 1
+		// RESET = 0
 		
 	}
 }
