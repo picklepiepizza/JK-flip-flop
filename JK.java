@@ -7,6 +7,12 @@ public class JK {
     boolean q;
     boolean qnot;
     
+    public JK(boolean set, boolean reset, boolean preset, boolean clear) {
+        this.set = set;
+        this.reset = reset;
+        this.preset = preset;
+        this.clear = clear;
+    }
     
     public void setValues(boolean set, boolean reset, boolean preset, boolean clear) {
         this.set = set;
