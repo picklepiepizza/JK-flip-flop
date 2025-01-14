@@ -45,6 +45,9 @@ public class JK {
             } else if (this.set == true && this.reset == true) {
                 this.q = !this.q;
                 this.qnot = !this.qnot;
+            } else if (this.set == false && this.reset == false) {
+                this.q = this.q;
+                this.qnot = !this.q;
             }
             
         }
