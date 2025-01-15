@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class Client {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        JK jkFlipFlop = new JK();
+
+        System.out.println("Enter the value for Preset: ");
+        boolean preset = scanner.nextBoolean();
+
+        System.out.println("Enter the value for Clear: ");
+        boolean clear = scanner.nextBoolean();
+
+        System.out.println("Enter the value for Set: ");
+        boolean set = scanner.nextBoolean();
+
+        System.out.println("Enter the value for Reset: ");
+        boolean reset = scanner.nextBoolean();
+
+
+        jkFlipFlop.setValues(set, reset, preset, clear);
+
+        jkFlipFlop.clock();
+
+        System.out.println("Q: " + jkFlipFlop.getQ());
+        System.out.println("Q Not: " + jkFlipFlop.getQNot());
+    }
+}
