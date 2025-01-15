@@ -1,1 +1,56 @@
+public class JK {
+    boolean set;
+    boolean reset;
+    boolean preset;
+    boolean clear;
+    boolean Q;
+    boolean qNot;
 
+    public JK() {}
+
+    public JK(boolean set, boolean reset, boolean preset, boolean clear) {
+        this.set = set;
+        this.reset = reset;
+        this.preset = preset;
+        this.clear = clear;
+    }
+
+    public void setValues(boolean set, boolean reset, boolean preset, boolean clear) {
+        this.set = set;
+        this.reset = reset;
+        this.preset = preset;
+        this.clear = clear;
+    }
+
+    public void clock() {
+
+        if (this.preset == false && this.clear == false) {
+            this.Q = true;
+            this.qNot = true;
+        } else if (this.preset == false && this.clear == true) {
+            this.Q = true;
+            this.qNot = false;
+        } else if (this.preset == true && this.clear == false) {
+            this.Q = false;
+            this.qNot = true;
+        } else if (this.preset == true && this.clear == true) {
+            if (this.set == false && this.reset == true) {
+                this.Q = false;
+                this.qNot = true;
+            } else if (this.set == true && this.reset == false) {
+                this.Q = true;
+                this.qNot = false;
+            } else if (this.set == true && this.reset == true) {
+                this.Q = !this.Q;
+                this.qNot = !this.qNot;
+            }
+        }
+    }
+
+    public boolean getQ() {
+        return this.Q;
+    }
+    public boolean getQNot() {
+        return this.qNot;
+    }
+}
