@@ -1,15 +1,39 @@
+import java.util.Scanner;
+
 public class Main
 {
 	public static void main(String[] args) {
 		
-		JK newJK = new JK(1, 0, 0, 0);
+    	final String[] inputs = {"Set", "Reset", "Preset", "Clear"};
 		
-		newJK.clock();
+		Scanner scan = new Scanner(System.in);
 		
-		System.out.println(newJK.getq());
-
-		// SET = 1
-		// RESET = 0
+		JK MyJK = new JK();
+		
+		while (true) {
+		    
+		    boolean[] settings = {false, false, false, false};
+		    
+		    for (int currentInput=0;currentInput<=3;currentInput++) {
+		        
+		        System.out.print("Enter "+inputs[currentInput]+": ");
+		        
+		        int chosenInput = Integer.parseInt(scan.nextLine());
+		        settings[currentInput] = chosenInput!=0;
+		        
+		    }
+		    
+		    MyJK.setInputs(settings[0], settings[1], settings[2], settings[3]);
+		    
+		    // clock
+		    
+		    boolean[] outputs = JK.clock(MyJK);
+		    boolean q = outputs[0];
+		    boolean qnot = outputs[1];
+		    
+		    System.out.println(JK.clock(MyJK)[0]);
+		    
+		}
 		
 	}
 }
