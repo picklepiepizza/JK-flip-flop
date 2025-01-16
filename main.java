@@ -28,12 +28,7 @@ public class Main
 		    // clock
 		    
 		    boolean[] outputs = JK.clock(MyJK);
-		    boolean q = outputs[0];
-		    boolean qnot = outputs[1];
-		    
-		    System.out.println("Outputs");
-		    System.out.println("Q: "+q);
-		    System.out.println("Qn: "+qnot);
+		    System.out.println("Outputs"+"\nQ: "+outputs[0]+"\nQn: "+outputs[1]);
 		    
 		}
 		
