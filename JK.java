@@ -1,77 +1,53 @@
 public class JK {
-    
-    boolean set;
-    boolean reset;
-    boolean preset;
-    boolean clear;
-    boolean q;
-    boolean qnot;
-    
+
+    private boolean q = false;
+    private boolean qnot = true;
+
+    private boolean set = false;
+    private boolean reset = false;
+    private boolean preset = true;
+    private boolean clear = true;
+
     public JK() {}
-    
+
     public JK(boolean set, boolean reset, boolean preset, boolean clear) {
         this.set = set;
         this.reset = reset;
         this.preset = preset;
         this.clear = clear;
     }
-    
+
     public void setInputs(boolean set, boolean reset, boolean preset, boolean clear) {
         this.set = set;
         this.reset = reset;
         this.preset = preset;
         this.clear = clear;
     }
-    
-    public boolean[] getInputs() {
-        boolean[] inputs = {this.set, this.reset, this.preset, this.clear};
-        return inputs;
+
+    public boolean[] getOutputs() {
+        return new boolean[] {q, qnot};
     }
-    
-    public static boolean[] clock(JK jk) {
-        
-        // Q, Qn
-        boolean[] outputs = {jk.getq(), jk.getqnot()};
-        boolean[] inputs = jk.getInputs();
-        boolean set = inputs[0];
-        boolean reset = inputs[1];
-        boolean preset = inputs[2];
-        boolean clear = inputs[3];
-        
-        if (preset == false && clear == false) {
-            outputs[0] = true;
-            outputs[1] = true;
-        } else if (preset == false && clear == true) {
-            outputs[0] = true;
-            outputs[1] = false;
-        } else if (preset == true && clear == false) {
-            outputs[0] = false;
-            outputs[1] = true;
-        } else if (preset == true && clear == true) {
-            
-            if (set == false && reset == true) {
-                outputs[0] = false;
-                outputs[1] = true;
-            } else if (set == true && reset == false) {
-                outputs[0] = true;
-                outputs[1] = false;
-            } else if (set == true && reset == true) {
-                outputs[0] = !outputs[0];
-                outputs[1] = !outputs[1];
+
+    public void clock() {
+        if (!preset && !clear) {
+            throw new IllegalStateException("Invalid state: Both Preset and Clear are false.");
+        } else if (!preset) {
+            q = true;
+            qnot = false;
+        } else if (!clear) {
+            q = false;
+            qnot = true;
+        } else {
+            if (!set && reset) {
+                q = false;
+                qnot = true;
+            } else if (set && !reset) {
+                q = true;
+                qnot = false;
+            } else if (set && reset) {
+                q = !q;
+                qnot = !qnot;
             }
-            
         }
-        
-        return outputs;
-        
     }
-    
-    public boolean getq() {
-        return this.q;
-    }
-    
-    public boolean getqnot() {
-        return this.qnot;
-    }
-    
 }
