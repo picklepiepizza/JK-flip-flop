@@ -114,8 +114,9 @@ public class JK {
                 outputs[0] = true;
                 outputs[1] = false;
             } else if (set == true && reset == true) {
-                outputs[0] = !outputs[0];
-                outputs[1] = !outputs[1];
+                boolean temp = outputs[0];
+                outputs[0] = outputs[1];
+                outputs[1] = temp;
             }
             
         }
@@ -141,6 +142,24 @@ public class JK {
      */
     public boolean getqnot() {
         return this.qnot;
+    }
+    
+    /**
+     * Sets the output of Q.
+     * 
+     * @param New Q state.
+     */
+    public void setq(boolean q) {
+        this.q = q;
+    }
+    
+    /**
+     * Sets the output of Qnot.
+     * 
+     * @param New Qnot state.
+     */
+    public void setqnot(boolean qnot) {
+        this.qnot = qnot;
     }
     
 }
