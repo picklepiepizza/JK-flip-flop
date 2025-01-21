@@ -30,6 +30,9 @@ public class Main
 		    boolean[] outputs = JK.clock(MyJK);
 		    System.out.println("Outputs"+"\nQ: "+outputs[0]+"\nQn: "+outputs[1]);
 		    
+		    MyJK.setq(outputs[0]);
+		    MyJK.setqnot(outputs[1]);
+		    
 		}
 		
 	}
