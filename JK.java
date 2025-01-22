@@ -32,7 +32,7 @@ public class JK {
     /**
      * Qnot output of the JK flip flop.
      */
-    boolean qnot;
+    boolean qnot = true;
     
     /**
      * Initializes the JK flip flop with all inputs set to 0.
